@@ -1,6 +1,5 @@
 const jwt = new URLSearchParams(window.location.search).get('token');
 const API_URL = 'https://api.basement.fun/launcher';
-let userNonce = "";
 
 class StartScene extends Phaser.Scene {
     constructor() {
@@ -205,7 +204,7 @@ class MainScene extends Phaser.Scene {
                 },
                 body: JSON.stringify({
                 launcherJwt: jwt,
-                nonce: userNonce,
+                nonce: "latestScore",
                 score: this.score
                 })
             })

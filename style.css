@@ -1,0 +1,35 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+  }
+  
+  .rainbow {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 84px;
+    margin-top: -42px;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+  }
+  
+  .stripe { height: 12px; width: 100%; }
+  .c1 { background: #7646FF; }
+  .c2 { background: #285FCA; }
+  .c3 { background: #07D4FF; }
+  .c4 { background: #00B872; }
+  .c5 { background: #FFA900; }
+  .c6 { background: #FF5C00; }
+  .c7 { background: #FF0000; }
+  
+  canvas {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin: 0 auto;
+  }

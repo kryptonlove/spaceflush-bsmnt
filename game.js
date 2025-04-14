@@ -241,20 +241,22 @@ class MainScene extends Phaser.Scene {
             }).setOrigin(0.5);
 
             // SHARE ON TWITTER BUTTON
-            let shareButton = this.add.text(this.scale.width * 0.5, this.scale.height * 0.6, "SHARE ON TWITTER", {
-              fontSize: "20px",
-              fontFamily: 'Orbitron, sans-serif',
-              color: "#000",
-              backgroundColor: "#07D4FF",
-            })
-            .setOrigin(0.5)
-            .setInteractive()
-            .setPadding(this.scale.width, 5)
-            .on("pointerdown", () => {
-              let tweetText = encodeURIComponent(`I fought off cosmic snakes in Space Flush @bsmntdotfun and scored ${this.score}. Can you beat my score? @digglefun`);
-              let tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=https://diggle.fun`;
-              window.open(tweetUrl, "_blank");
-            });
+            if (!this.sys.game.device.os.android && !this.sys.game.device.os.iOS){
+              let shareButton = this.add.text(this.scale.width * 0.5, this.scale.height * 0.6, "SHARE ON TWITTER", {
+                fontSize: "20px",
+                fontFamily: 'Orbitron, sans-serif',
+                color: "#000",
+                backgroundColor: "#07D4FF",
+              })
+              .setOrigin(0.5)
+              .setInteractive()
+              .setPadding(this.scale.width, 5)
+              .on("pointerdown", () => {
+                let tweetText = encodeURIComponent(`I fought off cosmic snakes in Space Flush @bsmntdotfun and scored ${this.score}. Can you beat my score? @digglefun`);
+                let tweetUrl = `https://twitter.com/intent/tweet?text=${tweetText}&url=https://diggle.fun`;
+                window.open(tweetUrl, "_blank");
+              });  
+            }
 
             // START AGAIN BUTTON
             let restartButton = this.add.text(this.scale.width * 0.5, this.scale.height * 0.5, "START AGAIN", {
